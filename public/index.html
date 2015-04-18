@@ -37,11 +37,11 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
-          <h1 class="page-header">Dogs Gallery</h1>
+          <h1 class="page-header">Perros cercanos a ti</h1>
       </div>
       <div class="col-lg-3 col-md-4 col-xs-6">
           <a class="thumbnail" href="#">
-              <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+              <img class="img-responsive" src="./images/bulldog.jpg" alt="">
           </a>
       </div>
       <div class="col-lg-3 col-md-4 col-xs-6">
@@ -64,6 +64,40 @@
               <img class="img-responsive" src="http://placehold.it/400x300" alt="">
           </a>
       </div>            
+    </div>
+  </div>
+
+  <!-- Modal window showDog -->
+  <div id="modalShowDog" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">*|Nombre perro|*</h4>
+        </div>
+        <div class="modal-body">
+
+            <div class="row">
+              <div class="col-md-6">
+                <img class="img-responsive" src="./images/bulldog.jpg" alt="">
+              </div>
+              <div class="col-md-6">
+                <ul class="list-group">
+                  <li class="list-group-item">Sexo</li>
+                  <li class="list-group-item">Raza</li>
+                  <li class="list-group-item">Pedigree</li>
+                  <li class="list-group-item">Edad</li>
+                  <li class="list-group-item">Ciudad</li>
+                  <li class="list-group-item">Contacto</li>
+                </ul>
+              </div>
+            </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
     </div>
   </div>
 
