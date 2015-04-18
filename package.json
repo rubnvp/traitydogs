@@ -1,0 +1,21 @@
+{
+  "name": "traitydogs",
+  "version": "0.0.01",
+  "author": "traitydogsDevelopers",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rubnvp/traitydogs.git"
+  },
+  "keywords": [
+    "dogs","dates", "puppies", "breeding"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "grunt": "~0.4.0",
+    "grunt-contrib-watch": "~0.6.1",
+    "grunt-contrib-less": "*",
+  },
+  "devDependencies": {
+    "grunt-contrib-watch": "~0.6.1"
+  }
+}
