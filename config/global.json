@@ -1,0 +1,11 @@
+{
+    "applications": {
+        "_default": {
+            "link": "traitydogs"
+        }, 
+        "traitydogs": {
+            "applicationId": "D9V5hkDmqPf2beWiXe2oyHohNLqghx5FmoyY11th", 
+            "masterKey": "dbrtUdsOxaGKXulyETIIUwJ1F8DbTEimTnwUMH2r"
+        }
+    }
+}
