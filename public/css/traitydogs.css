@@ -12,6 +12,55 @@ img {
   -moz-background-clip: padding;
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
+  margin: 0 auto;
+}
+.image {
+  position: relative;
+  width: 100%;
+  /* for IE 6 */
+}
+.image h2 {
+  position: absolute;
+  opacity: 0;
+  top: -6%;
+  left: 70%;
+  width: 100%;
+}
+.image h2 span {
+  color: white;
+  font: bold 24px/45px Helvetica, Sans-Serif;
+  letter-spacing: -1px;
+  background: #000000;
+  /* fallback color */
+  background: rgba(0, 0, 0, 0.7);
+  padding: 10px;
+}
+.image:hover h2 {
+  opacity: 1;
+}
+.fa-venus {
+  color: #FF004E;
+}
+.fa-mars {
+  color: #245CE7;
+}
+.team-member {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.team-member img {
+  margin: 0 auto;
+  border: 7px solid white;
+  width: 50%;
+}
+.team-member h4 {
+  margin-top: 25px;
+  margin-bottom: 0;
+  text-transform: none;
+}
+.team-member p {
+  margin-top: 0;
 }
 footer {
   margin: 50px;

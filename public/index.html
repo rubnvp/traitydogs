@@ -6,6 +6,7 @@
    <title>TraityDogs</title>
    <!--Bootstrap CSS-->
    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
    <!--Monoton Fontfamily-->
    <link href='http://fonts.googleapis.com/css?family=Monoton' rel='stylesheet' type='text/css'>
    <!--Raleway Fontfamily-->
@@ -32,8 +33,8 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right topnav">
-                    <li><a class="upload-dog" href="#upload-dog">Sube a tu perro</a></li>
-                    <li><a class="gallery" href="#gallery">Galeria</a></li>
+                    <li><a class="upload-dog" href="#upload-dog">Sube a tu perro <i class="fa fa-cloud-upload"></i></a></li>
+                    <li><a class="gallery" href="#gallery">Galeria <i class="fa fa-camera-retro"></i></a></li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -45,8 +46,15 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
-          <h1 class="page-header">Perros cercanos a ti</h1>
+          <h1 class="text-center">Perros cercanos a ti</h1>
+      <!--Prueba-->
+      <div class="col-lg-3 col-md-4 col-xs-6">
+        <a class="thumbnail image" data-id="QUDiobmCVG" href="#">
+          <img class="img-responsive" src="http://superpiensos.com/blog/wp-content/uploads/2013/08/labrador6.jpg" alt="">
+          <h2><span><i class="fa fa-venus"></i><i class="fa fa-mars"></i></span></h2>
+        </a>
       </div>
+      <!--Fin prueba-->
       <div class="dog-gallery">
       </div>
     </div>
@@ -499,7 +507,7 @@
                   </div>
                 </div>
 
-                </fieldset>
+                  </fieldset>
                 </form>
 
               </div>
@@ -512,6 +520,40 @@
       </div>
     </div>
   </div>
+
+  <!-- Team Section -->
+    <section id="team" class="bg-light-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Equipo TraityDogs</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="team-member">
+                        <img src="https://pbs.twimg.com/profile_images/1248132605/pocoyo_verderojo_cara_400x400.png" class="img-responsive img-circle" alt="">
+                        <h4><a href="http://twitter.com/amsorribes"><i class="fa fa-twitter"></i> amsorribes</a></h4>
+                        <p class="text-muted">Data Science</p>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="team-member">
+                        <img src="https://pbs.twimg.com/profile_images/2727160341/b6ca0be294d42a9f7f981221bde509bc_400x400.png" class="img-responsive img-circle" alt="">
+                        <h4><a href="http://twitter.com/rubnvp"><i class="fa fa-twitter"></i> rubnvp</a></h4>
+                        <p class="text-muted">FullStack</p>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="team-member">
+                        <img src="https://pbs.twimg.com/profile_images/527600697735655424/dRIXRGqG_400x400.jpeg" class="img-responsive img-circle" alt="">
+                        <h4><a href="http://twitter.com/marcos90gil"><i class="fa fa-twitter"></i> marcos90gil</a></h4>
+                        <p class="text-muted">Frontend</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
   <!--Footer-->
   <footer>
