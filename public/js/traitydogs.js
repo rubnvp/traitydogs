@@ -2,7 +2,6 @@ $(function() {
 // ----- Get dogs to show on dogs gallery
    function getDogs(){
       var query = new Parse.Query("Dog");
-      query.include("user");
       query.find({
          success: function(dogs) {
             gallery = "";
@@ -35,7 +34,6 @@ $(function() {
 
    function getDogInformation(dogId){
       var query = new Parse.Query("Dog");
-      query.include("user");
       query.get(dogId, {
          success: function(dog) {            
             var name = dog.get("name");
@@ -47,8 +45,9 @@ $(function() {
             var bornDate = dog.get("born");
             var age = getAge(bornDate); 
             var city = dog.get("city");
-            var user = dog.get("user");
-            var contact = getContact(user);
+            var username = dog.get("username");
+            var useremail = dog.get("useremail");
+            var contact = username + " ("+useremail+")";
             showDogModalWindow(name, photoUrl, gender, race, pedigree, age, city, contact);
          },
          error: function(error) {
@@ -82,23 +81,109 @@ $(function() {
       return diferenceWithToday;
    }
 
-   function getContact(user){
-      var name = user.get("username");
-      var email = user.get("email");
-      return name+" ("+email+")";
-   }
-
 // ----- Upload dog on Modal window
 
    $(".topnav .upload-dog").on('click', function(e){
       e.preventDefault();
       $('#dog-modal-upload').modal('toggle');
-   }); 
+   });
 
-// ---- Initialize
+   $("#dog-modal-upload #dog-btn-upload").on('click', function(){
+      uploadPhoto();
+   });
+
+   function saveDog(photoUrl) {
+      var ref = $("#dog-modal-upload");
+
+      var name = ref.find("#dog-name").val();
+      //var photoUrl = "http://feminspire.com/wp-content/uploads/2013/05/PIN-FOREVERALONE-01.jpg"; // ????? falta poder subir una foto
+      var gender = ref.find("#dog-gender option:selected").text();
+      var bornDate = ref.find("#dog-born").val();
+      var born = moment(bornDate).toDate();
+      var race = ref.find("#dog-race option:selected").text();
+      var pedigree = ref.find('#dog-pedigree').prop('checked');     
+      var username = ref.find("#user-name").val();
+      var useremail = ref.find("#user-email").val();
+      var locality = ref.find("#address_components .locality").html();
+      var region = ref.find("#address_components .region").html();
+      var city = locality+", "+region;
+      var location = []; // ????? falta coger la location
+
+      var Dog = Parse.Object.extend("Dog");
+      var dog = new Dog();
+       
+      dog.save({
+        name: name,
+        photo: photoUrl,
+        gender: gender,
+        born: born,
+        race: race,
+        pedigree: pedigree,
+        username: username,
+        useremail: useremail,
+        city: city
+      }, {
+        success: function(dog) {
+            alert("Woaf!!, "+name+" añadido con éxito");
+        },
+        error: function(dog, error) {
+          // The request failed
+         console.error("Error: " + error.code + " " + error.message);
+        }
+      });
+   }
+
+   var file;
+
+   $('#dog-photo').bind("change", function(e) {
+      var files = e.target.files || e.dataTransfer.files;
+      // Our file var now holds the selected file
+      file = files[0];
+   });
+
+   function uploadPhoto() {
+      var serverUrl = 'https://api.parse.com/1/files/' + file.name;
+
+      $.ajax({
+        type: "POST",
+        beforeSend: function(request) {
+          request.setRequestHeader("X-Parse-Application-Id", 'D9V5hkDmqPf2beWiXe2oyHohNLqghx5FmoyY11th');
+          request.setRequestHeader("X-Parse-REST-API-Key", 'A35jaBDGmBmzskSbt0CedrpAQqjycvZ8nkuxaL8E');
+          request.setRequestHeader("Content-Type", file.type);
+        },
+        url: serverUrl,
+        data: file,
+        processData: false,
+        contentType: false,
+        success: function(data) {
+          console.log("Foto subida a: " + data.url);
+          saveDog(data.url);
+        },
+        error: function(data) {
+          alert("Error al subir tu foto");
+          var obj = jQuery.parseJSON(data);
+          console.error(obj.error);
+
+        }
+      });
+   }
+
+// ----- Initialize
+   function initAutocomplete() {
+     var autocomplete = new google.maps.places.Autocomplete(document.getElementById("autocomplete"), {
+        types: ["geocode"]
+      });
+      google.maps.event.addListener(autocomplete, "place_changed", function() {
+        var addplace = autocomplete.getPlace();
+        $('#autocomplete').val(addplace.formatted_address);
+        $('#address_components').html(addplace.adr_address);
+      });
+   }
+
    function initialize(){
-      Parse.initialize("D9V5hkDmqPf2beWiXe2oyHohNLqghx5FmoyY11th", "oTKz3eemuJo0r9njdcD89btqHAxuw5lRIFa0YPs5");
+      Parse.initialize("D9V5hkDmqPf2beWiXe2oyHohNLqghx5FmoyY11th", "oTKz3eemuJo0r9njdcD89btqHAxuw5lRIFa0YPs5");      
       getDogs();
+      initAutocomplete();
    }
    initialize();
 });
