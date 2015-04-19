@@ -69,7 +69,7 @@ $(function() {
 
 // ----- Pagination, more dogs! :D
    $("#dog-more-dogs").on('click', function(){
-      page = page + maxDogsPerPage;
+      page++;
       getDogs(true);
    });   
 
