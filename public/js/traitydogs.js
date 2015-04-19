@@ -2,6 +2,7 @@ $(function() {
 // ----- Get dogs to show on dogs gallery
    function getDogs(){
       var query = new Parse.Query("Dog");
+      query.descending("createdAt");
       query.find({
          success: function(dogs) {
             gallery = "";
@@ -124,7 +125,8 @@ $(function() {
         city: city
       }, {
         success: function(dog) {
-            alert("Woaf!!, "+name+" añadido con éxito");
+         getDogs();
+         alert("Woaf!!, "+name+" añadido con éxito");
         },
         error: function(dog, error) {
           // The request failed
