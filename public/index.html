@@ -132,7 +132,7 @@
                 <div class="form-group">
                   <label class="col-md-4 control-label" for="dog-born">Fecha de Nacimiento</label>
                   <div class="col-md-4">
-                  <input id="dog-born" name="dog-name" type="date" placeholder="" class="form-control input-md" required="">
+                  <input id="dog-born" name="dog-born" type="date" placeholder="" class="form-control input-md" required="">
 
                   </div>
                 </div>
@@ -464,8 +464,8 @@
                   <label class="col-md-4 control-label" for="dog-pedigree">¿Tienes pedigree?</label>
                   <div class="col-md-4">
                   <div class="checkbox">
-                    <label for="dog-pedigree-0">
-                      <input type="checkbox" name="dog-pedigree" id="dog-pedigree-0" value="1">
+                    <label for="dog-pedigree">
+                      <input type="checkbox" name="dog-pedigree" id="dog-pedigree" value="1">
                       Con pedigree
                     </label>
                   </div>
@@ -484,10 +484,11 @@
                 <div class="form-group">
                   <label class="col-md-4 control-label" for="dog-adress">Dirección</label>
                   <div class="col-md-6">
-                    <input id="dog-adress" name="dog-adress" type="search" placeholder="" class="form-control input-md" required="">
-                    <p class="help-block">Para que puedan encontrarte</p>
+                    <input id="autocomplete" name="dog-adress" type="text" placeholder="" class="form-control input-md" required="">
+                    <div id="address_components" class="hidden"></div>
                   </div>
                 </div>
+
 
                 <!-- Text input-->
                 <div class="form-group">
@@ -502,8 +503,7 @@
                 <div class="form-group">
                   <label class="col-md-4 control-label" for="user-email">Email de contacto</label>
                   <div class="col-md-6">
-                  <input id="user-email" name="user-email" type="text" placeholder="" class="form-control input-md" required="">
-                  <span class="help-block">Para que puedan contactarte</span>
+                  <input id="user-email" name="user-email" type="email" placeholder="" class="form-control input-md" required="">
                   </div>
                 </div>
 
@@ -515,7 +515,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-          <button type="button" class="btn btn-success" data-dismiss="modal">Publicar</button>
+          <button id="dog-btn-upload" type="button" class="btn btn-success" data-dismiss="modal">Publicar</button>
         </div>
       </div>
     </div>
@@ -570,6 +570,9 @@
   <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
   <!-- Parse -->
   <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.2.19.min.js"></script>
+  <!-- GMaps -->
+  <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
+  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
   <!-- Moment JS -->
   <script type="text/javascript" src="./js/libs/moment.min.js"></script>
   <!--TraityDogs JS-->
