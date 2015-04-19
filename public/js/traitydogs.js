@@ -1,20 +1,29 @@
 $(function() {
 // ----- Get dogs to show on dogs gallery
-   function getDogs(gender){
+   var page = 0; // variable for pagination
+   var maxDogsPerPage = 16;
+
+   function getDogs(append, gender, page){
       var query = new Parse.Query("Dog");
       if (gender!==undefined) query.equalTo("gender", gender);
       query.descending("createdAt");
-      query.limit(50); // ????? limite a 50 de momento
+      query.limit(maxDogsPerPage);
+      query.skip(maxDogsPerPage*page);
       query.find({
          success: function(dogs) {
             gallery = "";
-            dogs.forEach(function(dog){
+            dogs.forEach(function(dog, index){
                var dogId = dog.id;
                var photoUrl = dog.get("photo");
                var gender = dog.get("gender");
+               if (index % 4 == 0) gallery += '<div class="row">';
                gallery += getDogThumbnail(dogId, photoUrl, gender);
+               if (index % 4 == 3) gallery += '</div>';
             });
-            $(".dog-gallery").html(gallery);
+            if (dogs.length % 4 != 3) gallery += '</div>';
+            
+            if (append) $(".dog-gallery").append(gallery);
+            else $(".dog-gallery").html(gallery);
          },
          error: function(error) {
          // The request failed
@@ -35,12 +44,22 @@ $(function() {
       }
       return '<div class="col-lg-3 col-md-4 col-xs-6"><a class="thumbnail image" data-id="'+dogId+'" href="#"><img class="img-responsive" src="'+photoUrl+'" alt=""><h2><span><i class="fa fa-'+gender+'"></i></span></h2></a></div>';
    }
-// ----- Filter Dogs by gender
+// ----- Filters
+   //Dogs by gender
    $("#dog-filter").on('change', function(){
       var gender = $("#dog-filter option:selected").text();
       if (gender=="Todos") gender = undefined;
-      getDogs(gender);
+      page = 0;
+      getDogs(false, gender, page);
    });
+
+// ----- Pagination, more dogs! :D
+   $("#dog-more-dogs").on('click', function(){
+      var gender = $("#dog-filter option:selected").text();
+      if (gender=="Todos") gender = undefined;
+      page += maxDogsPerPage;
+      getDogs(true, gender, page);
+   });   
 
 // ----- Get a dog to show on Modal window
    $(document).on('click', '.thumbnail', function(e){
@@ -201,7 +220,7 @@ $(function() {
 
    function initialize(){
       Parse.initialize("D9V5hkDmqPf2beWiXe2oyHohNLqghx5FmoyY11th", "oTKz3eemuJo0r9njdcD89btqHAxuw5lRIFa0YPs5");      
-      getDogs(undefined);
+      getDogs(false, undefined, 0);
       initAutocomplete();
    }
    initialize();
