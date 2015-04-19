@@ -79,7 +79,7 @@ $(function() {
 
    function getAge(bornDate){
       var dateToday = new Date();
-      var diferenceWithToday = 3+" años";//moment(dateToday).diff(moment(bornDate)).format("YY")+" años";
+      var diferenceWithToday = (dateToday.getFullYear()-bornDate.getFullYear())+" años";//moment(dateToday).diff(moment(bornDate)).format("YY")+" años";
       return diferenceWithToday;
    }
 
