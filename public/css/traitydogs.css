@@ -5,25 +5,15 @@ body {
   background: white;
   font-family: 'Raleway', sans-serif;
 }
+img {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+}
 footer {
   margin: 50px;
-}
-a img {
-  opacity: 1;
-  -webkit-transition: opacity .25s ease;
-  -moz-transition: opacity .25s ease;
-  -o-transition: opacity .25s ease;
-  transition: opacity .25s ease;
-}
-a img:hover,
-a img:active {
-  opacity: 0;
-}
-a .effect {
-  opacity: 0;
-}
-a .effect:hover,
-a .effect:active {
-  opacity: 1;
 }
 /*# sourceMappingURL=traitydogs.css.map */

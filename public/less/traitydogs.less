@@ -2,34 +2,48 @@
     font-family: 'Monoton', cursive;
 }
 
+.border-radius (@radius: 4px) {
+    -webkit-border-radius: @radius;
+    -moz-border-radius:    @radius;
+    border-radius:         @radius;
+
+    -moz-background-clip:    padding;
+    -webkit-background-clip: padding-box;
+    background-clip:         padding-box;
+}
+
 
 body {
     background: white;
     font-family: 'Raleway', sans-serif;
 }
 
+img {
+    .border-radius;
+}
+
+// hover fail
+// a {
+
+//     img {
+//         opacity: 1;
+//         -webkit-transition: opacity .25s ease;
+//         -moz-transition: opacity .25s ease;
+//         -o-transition: opacity .25s ease;
+//         transition: opacity .25s ease;
+//         &:hover, &:active {
+//             opacity: 0;
+//         }
+//     }
+
+//     .effect {
+//     opacity: 0;
+//         &:hover, &:active {
+//             opacity: 1;
+//         }
+//     }
+// }
+
 footer {
     margin: 50px;
 }
-
-a {
-
-    img {
-        opacity: 1;
-        -webkit-transition: opacity .25s ease;
-        -moz-transition: opacity .25s ease;
-        -o-transition: opacity .25s ease;
-        transition: opacity .25s ease;
-        &:hover, &:active {
-            opacity: 0;
-        }
-    }
-
-    .effect {
-    opacity: 0;
-        &:hover, &:active {
-            opacity: 1;
-        }
-    }
-}
-
