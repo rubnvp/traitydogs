@@ -30,7 +30,7 @@ $(function() {
       e.preventDefault();
       var dogId = $(this).attr("data-id");
       getDogInformation(dogId);
-      $('#dog-modal').modal('toggle');
+      $('#dog-modal-show').modal('toggle');
    }); 
 
    function getDogInformation(dogId){
@@ -60,10 +60,10 @@ $(function() {
    }
 
    function showDogModalWindow(name, photoUrl, gender, race, pedigree, age, city, contact){
-      $("#dog-modal .dog-name").html(name);
-      $("#dog-modal .dog-image").attr("src", photoUrl);
+      $("#dog-modal-show .dog-name").html(name);
+      $("#dog-modal-show .dog-image").attr("src", photoUrl);
       var informationList = getDogInformationList(gender, race, pedigree, age, city, contact);
-      $("#dog-modal .dog-information").html(informationList);
+      $("#dog-modal-show .dog-information").html(informationList);
    }
 
    function getDogInformationList(gender, race, pedigree, age, city, contact){
@@ -88,6 +88,13 @@ $(function() {
       var email = user.get("email");
       return name+" ("+email+")";
    }
+
+// ----- Upload dog on Modal window
+
+   $(".topnav .upload-dog").on('click', function(e){
+      e.preventDefault();
+      $('#dog-modal-upload').modal('toggle');
+   }); 
 
 // ---- Initialize
    function initialize(){
