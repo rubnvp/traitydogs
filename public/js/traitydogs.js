@@ -1,4 +1,4 @@
-$(function() {   
+$(function() {
 // ----- Get dogs to show on dogs gallery
    function getDogs(){
       var query = new Parse.Query("Dog");
@@ -31,13 +31,13 @@ $(function() {
       var dogId = $(this).attr("data-id");
       getDogInformation(dogId);
       $('#dog-modal-show').modal('toggle');
-   }); 
+   });
 
    function getDogInformation(dogId){
       var query = new Parse.Query("Dog");
       query.include("user");
       query.get(dogId, {
-         success: function(dog) {            
+         success: function(dog) {
             var name = dog.get("name");
             var photoUrl = dog.get("photo");
             var gender = dog.get("gender");
@@ -45,7 +45,7 @@ $(function() {
             var pedigree = dog.get("pedigree");
             var pedigree = pedigree ? "Con pedigree" : "Sin pedigree";
             var bornDate = dog.get("born");
-            var age = getAge(bornDate); 
+            var age = getAge(bornDate);
             var city = dog.get("city");
             var user = dog.get("user");
             var contact = getContact(user);
@@ -93,7 +93,7 @@ $(function() {
    $(".topnav .upload-dog").on('click', function(e){
       e.preventDefault();
       $('#dog-modal-upload').modal('toggle');
-   }); 
+   });
 
 // ---- Initialize
    function initialize(){

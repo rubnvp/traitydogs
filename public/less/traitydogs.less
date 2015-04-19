@@ -20,13 +20,48 @@ body {
 
 img {
     .border-radius;
+     margin: 0 auto;
 }
 
-// Team Section
+// Male Female
+.image {
+   position: relative;
+   width: 100%; /* for IE 6 */
+   h2 {
+   position: absolute;
+   opacity: 0;
+   top: -6%;
+   left: 70%;
+   width: 100%;
+        span {
+            color: white;
+            font: bold 24px/45px Helvetica, Sans-Serif;
+            letter-spacing: -1px;
+            background: rgb(0, 0, 0); /* fallback color */
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+        }
+    }
+    &:hover {
+        h2 {
+            opacity: 1;
+        }
+    }
+}
+// Color iconos
+.fa-venus {
+    color: #FF004E;
+}
+.fa-mars {
+    color: #245CE7;
+}
 
+
+// Team Section
 .team-member {
     text-align: center;
-    margin-bottom: 50px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     img {
         margin: 0 auto;
         border: 7px solid white;
@@ -41,28 +76,6 @@ img {
         margin-top: 0;
     }
 }
-
-// hover fail
-// a {
-
-//     img {
-//         opacity: 1;
-//         -webkit-transition: opacity .25s ease;
-//         -moz-transition: opacity .25s ease;
-//         -o-transition: opacity .25s ease;
-//         transition: opacity .25s ease;
-//         &:hover, &:active {
-//             opacity: 0;
-//         }
-//     }
-
-//     .effect {
-//     opacity: 0;
-//         &:hover, &:active {
-//             opacity: 1;
-//         }
-//     }
-// }
 
 footer {
     margin: 50px;
