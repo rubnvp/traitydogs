@@ -10,24 +10,23 @@
  </head>
  <body>
 
-  <nav class="navbar navbar-default topnav" role="navigation">
-        <div class="container topnav">
+  <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand topnav" href="#">TraityDogs</a>
+                <a class="navbar-brand" href="#">TraityDogs</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="#gallery">Galeria</a>
-                    </li>
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right topnav">
+                    <li><a class="upload-dog" href="#upload-dog">Sube a tu perro</a></li>
+                    <li><a class="gallery" href="#gallery">Galeria</a></li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -72,12 +71,12 @@
   </div>
 
   <!-- Modal window showDog -->
-  <div id="dog-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div id="dog-modal-show" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title dog-name">*|Nombre perro|*</h4>
+          <h4 class="modal-title dog-name"><!--*|Nombre perro|*--></h4>
         </div>
         <div class="modal-body">
 
@@ -86,13 +85,13 @@
                 <img class="img-responsive dog-image" src="" alt="">
               </div>
               <div class="col-md-6">
-                <ul class="list-group dog-information">
+                <ul class="list-group dog-information"><!--
                   <li class="list-group-item">Sexo</li>
                   <li class="list-group-item">Raza</li>
                   <li class="list-group-item">Pedigree</li>
                   <li class="list-group-item">Edad</li>
                   <li class="list-group-item">Ciudad</li>
-                  <li class="list-group-item">Contacto</li>
+                  <li class="list-group-item">Contacto</li>-->
                 </ul>
               </div>
             </div>
@@ -100,6 +99,424 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal window uploadDog -->
+  <div id="dog-modal-upload" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title dog-name">Sube tu perro</h4>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+              <div class="col-lg-12">
+                <form class="form-horizontal">
+                <fieldset>
+
+                <!-- Text input-->
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="dog-name">Nombre</label>  
+                  <div class="col-md-4">
+                  <input id="dog-name" name="dog-name" type="text" placeholder="" class="form-control input-md" required="">
+                    
+                  </div>
+                </div>
+
+                <!-- Select Basic -->
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="dog-gender">Sexo</label>
+                  <div class="col-md-4">
+                    <select id="dog-gender" name="dog-gender" class="form-control">
+                      <option value="1">Hembra</option>
+                      <option value="2">Macho</option>
+                    </select>
+                  </div>
+                </div>
+
+                <!-- Select Basic -->
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="dog-race">Raza</label>
+                  <div class="col-md-5">
+                    <select id="dog-race" name="dog-race" class="form-control">
+                      <option value="">Sin Raza o Mestizos</option>
+                      <option value="">Affenpinscher</option>
+                      <option value="">Afgano</option>
+                      <option value="">Akita</option>
+                      <option value="">Akita Americano</option>
+                      <option value="">Alano Español</option>
+                      <option value="">American Bully</option>
+                      <option value="">American Foxhound</option>
+                      <option value="">American Pit Bull Terrier</option>
+                      <option value="">American Staffordshire Terrier</option>
+                      <option value="">Antiguo perro de muestra Danés</option>
+                      <option value="">Australian Silky Terrier</option>
+                      <option value="">Azawakh</option>
+                      <option value="">Barbet</option>
+                      <option value="">Basenji</option>
+                      <option value="">Basset artesiano de Normandia</option>
+                      <option value="">Basset azul de Gascuña</option>
+                      <option value="">Basset Hound</option>
+                      <option value="">Basset leonado de Bretaña</option>
+                      <option value="">Beagle</option>
+                      <option value="">Beagle-Harrier</option>
+                      <option value="">Bedlington Terrier</option>
+                      <option value="">Berger de Picardie</option>
+                      <option value="">Bichón Boloñés</option>
+                      <option value="">Bichón Frisé</option>
+                      <option value="">Bichón Habanero</option>
+                      <option value="">Bichon maltés</option>
+                      <option value="">Billy</option>
+                      <option value="">Black And Tan Coonhound</option>
+                      <option value="">Bloodhound</option>
+                      <option value="">Bobtail</option>
+                      <option value="">Bodeguero Andaluz</option>
+                      <option value="">Border Collie</option>
+                      <option value="">Border Terrier</option>
+                      <option value="">Borzoi (galgo Ruso)</option>
+                      <option value="">Boston Terrier</option>
+                      <option value="">Bóxer</option>
+                      <option value="">Boyero Australiano</option>
+                      <option value="">Boyero de Flandes</option>
+                      <option value="">Boyero de las Ardenas</option>
+                      <option value="">Braco alemán de pelo corto</option>
+                      <option value="">Braco alemán de pelo duro</option>
+                      <option value="">Braco de Auvernia</option>
+                      <option value="">Braco de Weimar</option>
+                      <option value="">Braco del Ariège</option>
+                      <option value="">Braco del Bourbonnais</option>
+                      <option value="">Braco francés, tipo Gascuña, talla grande.</option>
+                      <option value="">Braco francés, tipo Pirineos talla pequeña</option>
+                      <option value="">Braco italiano</option>
+                      <option value="">Braco San Germain</option>
+                      <option value="">Briard</option>
+                      <option value="">Brittany</option>
+                      <option value="">Broholmer</option>
+                      <option value="">Buhund Noruego</option>
+                      <option value="">Bull Terrier</option>
+                      <option value="">Bull Terrier Miniatura</option>
+                      <option value="">Bulldog</option>
+                      <option value="">Bulldog americano</option>
+                      <option value="">Bulldog Francés</option>
+                      <option value="">Bullmastín</option>
+                      <option value="">Cairn Terrier</option>
+                      <option value="">Cane Corso</option>
+                      <option value="">Caniche (o Poodle)</option>
+                      <option value="">Carlino</option>
+                      <option value="">Cavalier King Charles Spaniel</option>
+                      <option value="">Chihuahua</option>
+                      <option value="">Chin Japonés</option>
+                      <option value="">Chow Chow</option>
+                      <option value="">Cirneco Del Etna</option>
+                      <option value="">Clumber Spaniel</option>
+                      <option value="">Cobrador de Nueva Escocia</option>
+                      <option value="">Cocker Spaniel</option>
+                      <option value="">Cocker Spaniel Americano</option>
+                      <option value="">Collie</option>
+                      <option value="">Collie Barbudo</option>
+                      <option value="">Collie Smooth</option>
+                      <option value="">Corgi Galés Cárdigan</option>
+                      <option value="">Corgi Galés Pembroke</option>
+                      <option value="">Cotón de Tuléar</option>
+                      <option value="">Curly Coated Retriever  (de pelo rizado)</option>
+                      <option value="">Dálmata</option>
+                      <option value="">Dandie Dinmont Terrier</option>
+                      <option value="">Deerhound Escocés</option>
+                      <option value="">Doberman</option>
+                      <option value="">Dogo Argentino</option>
+                      <option value="">Dogo Canario</option>
+                      <option value="">Dogo de Burdeos</option>
+                      <option value="">Dogo Mallorquín</option>
+                      <option value="">Drever</option>
+                      <option value="">Elkhound Noruego</option>
+                      <option value="">Epagneul breton</option>
+                      <option value="">Eurasier</option>
+                      <option value="">Faraón Hound</option>
+                      <option value="">Field Spaniel</option>
+                      <option value="">Fila Brasileiro</option>
+                      <option value="">Fila de San  Miguel</option>
+                      <option value="">Fox Terrier de Pelo Duro o Alambre</option>
+                      <option value="">Fox Terrier de Pelo Liso</option>
+                      <option value="">Fox Terrier Toy</option>
+                      <option value="">Foxhound Americano</option>
+                      <option value="">Foxhound Inglés</option>
+                      <option value="">Galgo Español</option>
+                      <option value="">Galgo Italiano</option>
+                      <option value="">Gascon Saintongeois</option>
+                      <option value="">Glen Of Imaal Terrier</option>
+                      <option value="">Golden Retriever</option>
+                      <option value="">Gran Basset Grifón vendeano</option>
+                      <option value="">Gran Danés</option>
+                      <option value="">Greyhound</option>
+                      <option value="">Grifon Belga</option>
+                      <option value="">Grifón de Bruselas</option>
+                      <option value="">Grifón de muestra bohemio de pelo duro</option>
+                      <option value="">Grifon de muestra eslovaco de pelo duro</option>
+                      <option value="">Grifón de muestra Korthals de pelo duro</option>
+                      <option value="">Hamilton Stovare</option>
+                      <option value="">Harrier</option>
+                      <option value="">Hokkaïdo</option>
+                      <option value="">Hovawart</option>
+                      <option value="">Husky Siberiano</option>
+                      <option value="">Irish Soft Coated Wheaten Terrier</option>
+                      <option value="">Jack Russell Terrier</option>
+                      <option value="">Jamthund</option>
+                      <option value="">Kai</option>
+                      <option value="">Karjalankarhukoira</option>
+                      <option value="">Keeshond</option>
+                      <option value="">Kerry Blue Terrier</option>
+                      <option value="">Kishu</option>
+                      <option value="">Komondor</option>
+                      <option value="">Korea Jinco Dog</option>
+                      <option value="">Kromfohrländer</option>
+                      <option value="">Kuvasz</option>
+                      <option value="">Labrador Retriever</option>
+                      <option value="">Laïka de Siberia oriental</option>
+                      <option value="">Laïka Ruso-Europeo</option>
+                      <option value="">Lakeland Terrier</option>
+                      <option value="">Landseer</option>
+                      <option value="">Lebrel Húngaro</option>
+                      <option value="">Leonberger</option>
+                      <option value="">Lhasa Apso</option>
+                      <option value="">Lundehund noruego</option>
+                      <option value="">Löwchen</option>
+                      <option value="">Malamute de Alaska</option>
+                      <option value="">Mastín</option>
+                      <option value="">Mastín Napolitano</option>
+                      <option value="">Mastín Tibetano</option>
+                      <option value="">Mudi</option>
+                      <option value="">Münsterländer grande</option>
+                      <option value="">Münsterländer pequeño</option>
+                      <option value="">Otterhound</option>
+                      <option value="">Papillon</option>
+                      <option value="">Parson Russell Terrier</option>
+                      <option value="">Pastor Alemán</option>
+                      <option value="">Pastor Australiano</option>
+                      <option value="">Pastor Belga</option>
+                      <option value="">Pastor Blanco Suizo</option>
+                      <option value="">Pastor Catalán</option>
+                      <option value="">Pastor de Anatolia</option>
+                      <option value="">Pastor de Beauce</option>
+                      <option value="">Pastor de Los Pirineos</option>
+                      <option value="">Pastor de Shetland</option>
+                      <option value="">Pastor Polaco de Tierras Bajas</option>
+                      <option value="">Pequeño Basset Grifón vendeano</option>
+                      <option value="">Pequeño Brabanzón</option>
+                      <option value="">Pequeño perro holandés para la caza acuática</option>
+                      <option value="">Pequinés</option>
+                      <option value="">Perdiguero de Burgos</option>
+                      <option value="">Perdiguero de Drente</option>
+                      <option value="">Perdiguero portugués</option>
+                      <option value="">Perro boyero de Entlebuch</option>
+                      <option value="">Perro Crestado Chino</option>
+                      <option value="">Perro de Agua Americano</option>
+                      <option value="">Perro De Agua Español</option>
+                      <option value="">Perro de Aguas Portugués</option>
+                      <option value="">Perro de Canaan</option>
+                      <option value="">Perro de Castro Laboreiro</option>
+                      <option value="">Perro de Groenlandia</option>
+                      <option value="">Perro de Montaña Appenzell</option>
+                      <option value="">Perro de Montaña Bernés</option>
+                      <option value="">Perro de Montaña de la Sierra de la Estrela</option>
+                      <option value="">Perro de Montaña de Los Pirineos</option>
+                      <option value="">Perro de Montaña del Atlas</option>
+                      <option value="">Perro de Montaña Gran Suizo</option>
+                      <option value="">Perro de muestra alemán de pelo cerdoso</option>
+                      <option value="">Perro de pastor bergamasco</option>
+                      <option value="">Perro de pastor de Asia Central</option>
+                      <option value="">Perro de pastor de Karst</option>
+                      <option value="">Perro de pastor de Rusia Meridional</option>
+                      <option value="">Perro de pastor del Cáucaso</option>
+                      <option value="">Perro de Pastor islandés</option>
+                      <option value="">Perro de pastor polaco de las Llanuras</option>
+                      <option value="">Perro de pastor polaco de Podhale</option>
+                      <option value="">Perro de pastor portugués</option>
+                      <option value="">Perro de Pastor yugoslavo de Charplanina</option>
+                      <option value="">Perro Esquimal Americano</option>
+                      <option value="">Perro Esquimal Canadiense</option>
+                      <option value="">Perro Lobo Checoslavaco</option>
+                      <option value="">Perro lobo de Sarloos</option>
+                      <option value="">Perro Pastor Croato</option>
+                      <option value="">Perro Pastor Mallorquín</option>
+                      <option value="">Perro pastor Maremmano-Abruzzese</option>
+                      <option value="">Perro sin Pelo del Perú</option>
+                      <option value="">Perro sin pelo Mexicano</option>
+                      <option value="">Perro Smous holandés</option>
+                      <option value="">Pinscher</option>
+                      <option value="">Pinscher austriaco</option>
+                      <option value="">Pinscher Miniatura</option>
+                      <option value="">Plott Hound</option>
+                      <option value="">Podenco Canario</option>
+                      <option value="">Podenco Ibicenco</option>
+                      <option value="">Podenco Portugués</option>
+                      <option value="">Pointer</option>
+                      <option value="">Pointer Alemán de Pelo Corto</option>
+                      <option value="">Pointer Alemán de Pelo Duro</option>
+                      <option value="">Poitevin</option>
+                      <option value="">Pomerania</option>
+                      <option value="">Porcelaine</option>
+                      <option value="">Pudelpointer</option>
+                      <option value="">Puli</option>
+                      <option value="">Pumi</option>
+                      <option value="">Rafeiro del Alentejo</option>
+                      <option value="">Rastreador de Hannover</option>
+                      <option value="">Rastreador montañes de Baviera</option>
+                      <option value="">Retriever de La Bahía de Chesapeake</option>
+                      <option value="">Retriever de Pelo Liso</option>
+                      <option value="">Ridgeback de Rodesia</option>
+                      <option value="">Rottweiler</option>
+                      <option value="">Sabueso alemán</option>
+                      <option value="">Sabueso Artesiano</option>
+                      <option value="">Sabueso austriaco negro y fuego</option>
+                      <option value="">Sabueso de Bosnia de pelo cerdoso</option>
+                      <option value="">Sabueso de Hygen</option>
+                      <option value="">Sabueso de las Montañas de Montenegro</option>
+                      <option value="">Sabueso de Smaland</option>
+                      <option value="">Sabueso de Transilvania</option>
+                      <option value="">Sabueso del Tirol</option>
+                      <option value="">Sabueso eslovaco</option>
+                      <option value="">Sabueso español</option>
+                      <option value="">Sabueso Estirio de pelo duro</option>
+                      <option value="">Sabueso finlandes</option>
+                      <option value="">Sabueso francés tricolor</option>
+                      <option value="">Sabueso Halden</option>
+                      <option value="">Sabueso Italiano (de pelo corto)</option>
+                      <option value="">Sabueso Italiano (de pelo duro)</option>
+                      <option value="">Sabueso noruego</option>
+                      <option value="">Sabueso polaco</option>
+                      <option value="">Sabueso Schiller</option>
+                      <option value="">Sabueso serbio</option>
+                      <option value="">Sabueso suizo</option>
+                      <option value="">Sabueso tricolor serbio</option>
+                      <option value="">Saluki (galgo Persa)</option>
+                      <option value="">Samoyedo</option>
+                      <option value="">San Bernardo</option>
+                      <option value="">Schapendoes neerlandés</option>
+                      <option value="">Schipperke</option>
+                      <option value="">Schnauzer</option>
+                      <option value="">Schnauzer Gigante</option>
+                      <option value="">Schnauzer Miniatura</option>
+                      <option value="">Sealyham Terrier</option>
+                      <option value="">Setter Gordon</option>
+                      <option value="">Setter Inglés</option>
+                      <option value="">Setter Irlandés</option>
+                      <option value="">Setter irlandés rojo</option>
+                      <option value="">Setter irlandés rojo y blanco</option>
+                      <option value="">Shar Pei</option>
+                      <option value="">Shiba</option>
+                      <option value="">Shih Tzu</option>
+                      <option value="">Shikoku</option>
+                      <option value="">Silky Terrier</option>
+                      <option value="">Sloughi (galgo árabe)</option>
+                      <option value="">Spaniel continental enano</option>
+                      <option value="">Spaniel de Agua Irlandés</option>
+                      <option value="">Spaniel de Pont-Audemer</option>
+                      <option value="">Spaniel de Sussex</option>
+                      <option value="">Spaniel Picardo</option>
+                      <option value="">Spaniel Tibetano</option>
+                      <option value="">Spinone Italiano</option>
+                      <option value="">Spitz Alemán</option>
+                      <option value="">Spitz Finlandés</option>
+                      <option value="">Spitz Japonés</option>
+                      <option value="">Springer Spaniel Galés</option>
+                      <option value="">Springer Spaniel Inglés</option>
+                      <option value="">Sptiz de Norrbotten</option>
+                      <option value="">Stabyhoun</option>
+                      <option value="">Staffordshire Bull Terrier</option>
+                      <option value="">Tchuvatch eslovaco</option>
+                      <option value="">Teckel</option>
+                      <option value="">Tejonero alpino</option>
+                      <option value="">Tejonero de Westfalia</option>
+                      <option value="">Terranova</option>
+                      <option value="">Terrier Australiano</option>
+                      <option value="">Terrier Brasileño</option>
+                      <option value="">Terrier cazador alemán</option>
+                      <option value="">Terrier Cesky</option>
+                      <option value="">Terrier de Airedale</option>
+                      <option value="">Terrier de Norfolk</option>
+                      <option value="">Terrier de Norwich</option>
+                      <option value="">Terrier de Skye</option>
+                      <option value="">Terrier Escocés</option>
+                      <option value="">Terrier Galés</option>
+                      <option value="">Terrier Irlandés</option>
+                      <option value="">Terrier japonés</option>
+                      <option value="">Terrier Tibetano</option>
+                      <option value="">Thai Ridgeback Dog</option>
+                      <option value="">Tosa Inu</option>
+                      <option value="">Valhund Sueco</option>
+                      <option value="">Vizsla</option>
+                      <option value="">Volpino Italiano</option>
+                      <option value="">West Highland White Terrier</option>
+                      <option value="">Wetterhound</option>
+                      <option value="">Wheaten Terrier</option>
+                      <option value="">Whippet</option>
+                      <option value="">Wolfhound Irlandés</option>
+                      <option value="">Yorkshire terrier</option>
+                    </select>
+                  </div>
+                </div>
+
+                <!-- Multiple Checkboxes -->
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="dog-pedigree">¿Tienes pedigree?</label>
+                  <div class="col-md-4">
+                  <div class="checkbox">
+                    <label for="dog-pedigree-0">
+                      <input type="checkbox" name="dog-pedigree" id="dog-pedigree-0" value="1">
+                      Con pedigree
+                    </label>
+                  </div>
+                  </div>
+                </div>
+
+                <!-- File Button --> 
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="dog-photo">Selecciona una foto picante ;)</label>
+                  <div class="col-md-4">
+                    <input id="dog-photo" name="dog-photo" class="input-file" type="file">
+                  </div>
+                </div>
+
+                <!-- Search input-->
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="dog-adress">Dirección</label>
+                  <div class="col-md-6">
+                    <input id="dog-adress" name="dog-adress" type="search" placeholder="" class="form-control input-md" required="">
+                    <p class="help-block">Para que puedan encontrarte</p>
+                  </div>
+                </div>
+
+                <!-- Text input-->
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="user-name">Nombre de tu dueño</label>  
+                  <div class="col-md-4">
+                  <input id="user-name" name="user-name" type="text" placeholder="" class="form-control input-md" required="">
+                    
+                  </div>
+                </div>
+
+                <!-- Text input-->
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="user-email">Email de contacto</label>  
+                  <div class="col-md-6">
+                  <input id="user-email" name="user-email" type="text" placeholder="" class="form-control input-md" required="">
+                  <span class="help-block">Para que puedan contactarte</span>  
+                  </div>
+                </div>
+
+                </fieldset>
+                </form>
+
+              </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-success" data-dismiss="modal">Publicar</button>
         </div>
       </div>
     </div>
