@@ -81,3 +81,6 @@ footer {
 .modal-backdrop {
   z-index: 10;
 }
+#dog-filter {
+  min-width: 107px;
+}
