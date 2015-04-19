@@ -1,8 +1,10 @@
 $(function() {
 // ----- Get dogs to show on dogs gallery
-   function getDogs(){
+   function getDogs(gender){
       var query = new Parse.Query("Dog");
+      if (gender!==undefined) query.equalTo("gender", gender);
       query.descending("createdAt");
+      query.limit(50);
       query.find({
          success: function(dogs) {
             gallery = "";
@@ -13,7 +15,6 @@ $(function() {
                gallery += getDogThumbnail(dogId, photoUrl, gender);
             });
             $(".dog-gallery").html(gallery);
-            dogs
          },
          error: function(error) {
          // The request failed
@@ -34,6 +35,11 @@ $(function() {
       }
       return '<div class="col-lg-3 col-md-4 col-xs-6"><a class="thumbnail image" data-id="'+dogId+'" href="#"><img class="img-responsive" src="'+photoUrl+'" alt=""><h2><span><i class="fa fa-'+gender+'"></i></span></h2></a></div>';
    }
+// ----- Filter Dogs by gender
+   $("#dog-filter").on('change', function(){
+      var gender = $("#dog-filter option:selected").text();
+      getDogs(gender);
+   });
 
 // ----- Get a dog to show on Modal window
    $(document).on('click', '.thumbnail', function(e){
@@ -194,7 +200,7 @@ $(function() {
 
    function initialize(){
       Parse.initialize("D9V5hkDmqPf2beWiXe2oyHohNLqghx5FmoyY11th", "oTKz3eemuJo0r9njdcD89btqHAxuw5lRIFa0YPs5");      
-      getDogs();
+      getDogs(undefined);
       initAutocomplete();
    }
    initialize();
