@@ -41,8 +41,7 @@ $(function() {
             var name = dog.get("name");
             var photoUrl = dog.get("photo");
             var gender = dog.get("gender");
-            var races = dog.get("race");
-            var race = races[0];
+            var race = dog.get("race");
             var pedigree = dog.get("pedigree");
             var pedigree = pedigree ? "Con pedigree" : "Sin pedigree";
             var bornDate = dog.get("born");
