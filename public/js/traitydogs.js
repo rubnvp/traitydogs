@@ -9,7 +9,8 @@ $(function() {
             dogs.forEach(function(dog){
                var dogId = dog.id;
                var photoUrl = dog.get("photo");
-               gallery += getDogThumbnail(dogId, photoUrl);
+               var gender = dog.get("gender");
+               gallery += getDogThumbnail(dogId, photoUrl, gender);
             });
             $(".dog-gallery").html(gallery);
             dogs
@@ -21,8 +22,17 @@ $(function() {
       });
    }
 
-   function getDogThumbnail(dogId, photoUrl){
-      return '<div class="col-lg-3 col-md-4 col-xs-6"><a class="thumbnail" data-id="'+dogId+'" href="#"><img class="img-responsive" src="'+photoUrl+'" alt=""></a></div>';
+   function getDogThumbnail(dogId, photoUrl, gender){
+      if (gender==""){
+         gender = "transgender";
+      }
+      else if (gender=="Macho") {
+         gender = "mars";
+      }
+      else if (gender=="Hembra"){
+         gender = "venus";
+      }
+      return '<div class="col-lg-3 col-md-4 col-xs-6"><a class="thumbnail image" data-id="'+dogId+'" href="#"><img class="img-responsive" src="'+photoUrl+'" alt=""><h2><span><i class="fa fa-'+gender+'"></i></span></h2></a></div>';
    }
 
 // ----- Get a dog to show on Modal window
