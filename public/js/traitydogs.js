@@ -4,7 +4,7 @@ $(function() {
       var query = new Parse.Query("Dog");
       if (gender!==undefined) query.equalTo("gender", gender);
       query.descending("createdAt");
-      query.limit(50);
+      query.limit(50); // ????? limite a 50 de momento
       query.find({
          success: function(dogs) {
             gallery = "";
@@ -38,6 +38,7 @@ $(function() {
 // ----- Filter Dogs by gender
    $("#dog-filter").on('change', function(){
       var gender = $("#dog-filter option:selected").text();
+      if (gender=="Todos") gender = undefined;
       getDogs(gender);
    });
 
