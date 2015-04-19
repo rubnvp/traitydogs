@@ -2,10 +2,13 @@ $(function() {
 // ----- Get dogs to show on dogs gallery
    var page = 0; // variable for pagination
    var maxDogsPerPage = 16;
+   var gender = undefined;
+   var city = "";
 
-   function getDogs(append, gender, page){
+   function getDogs(append){
       var query = new Parse.Query("Dog");
       if (gender!==undefined) query.equalTo("gender", gender);
+      if (city!="") query.equalTo("city", city);
       query.descending("createdAt");
       query.limit(maxDogsPerPage);
       query.skip(maxDogsPerPage*page);
@@ -24,6 +27,8 @@ $(function() {
             
             if (append) $(".dog-gallery").append(gallery);
             else $(".dog-gallery").html(gallery);
+
+            if (dogs.length == 0) alert("No more dogs madafaka!");
          },
          error: function(error) {
          // The request failed
@@ -47,18 +52,25 @@ $(function() {
 // ----- Filters
    //Dogs by gender
    $("#dog-filter").on('change', function(){
-      var gender = $("#dog-filter option:selected").text();
+      gender = $("#dog-filter option:selected").text();
       if (gender=="Todos") gender = undefined;
       page = 0;
-      getDogs(false, gender, page);
+      getDogs(false);
+   });
+
+   //Dogs by city
+   $('#dog-filter-city').bind("keypress", function(e) {
+        if (e.keyCode == 13) {
+            city = $("#dog-filter-city").val();
+            page = 0;
+            getDogs(false);
+        }
    });
 
 // ----- Pagination, more dogs! :D
    $("#dog-more-dogs").on('click', function(){
-      var gender = $("#dog-filter option:selected").text();
-      if (gender=="Todos") gender = undefined;
-      page += maxDogsPerPage;
-      getDogs(true, gender, page);
+      page = page + maxDogsPerPage;
+      getDogs(true);
    });   
 
 // ----- Get a dog to show on Modal window
@@ -161,7 +173,7 @@ $(function() {
         city: city
       }, {
         success: function(dog) {
-         getDogs();
+         getDogs(false);
          alert("Woaf!!, "+name+" añadido con éxito");
         },
         error: function(dog, error) {
@@ -220,7 +232,7 @@ $(function() {
 
    function initialize(){
       Parse.initialize("D9V5hkDmqPf2beWiXe2oyHohNLqghx5FmoyY11th", "oTKz3eemuJo0r9njdcD89btqHAxuw5lRIFa0YPs5");      
-      getDogs(false, undefined, 0);
+      getDogs(false);
       initAutocomplete();
    }
    initialize();

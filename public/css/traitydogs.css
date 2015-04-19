@@ -95,3 +95,6 @@ footer {
 #dog-filter {
   min-width: 107px;
 }
+.fix-top {
+  margin-top: 6px;
+}
